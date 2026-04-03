@@ -86,7 +86,7 @@ st.title("Test DataFrame S&P 500")
 st.dataframe(df)
 ```
 
-## Exemple rendu
+## Exemple rendus
 
 ![alt text](assets/image-1.png)
 ![alt text](assets/image-2.png)
