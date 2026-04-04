@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 
+# activer le mode wide
+st.set_page_config(layout="wide")
+
 # charger le csv de données
 df = pd.read_csv("archive/price_data/AAPL.csv")
 
@@ -49,11 +52,15 @@ chart = (
             "value:Q"
         ]
     )
-
     .properties(
-        width = 1200,
-        height= 700
+        width = "container",
+        height = 700
     )
 )
 
 st.altair_chart(chart, use_container_width=True)
+
+#
+st.title("Slider:")
+x = st.slider("x")
+st.write(f"{x}² = {x * x}", unsafe_allow_html=True)
