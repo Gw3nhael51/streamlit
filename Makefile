@@ -14,7 +14,7 @@ env-l:
 
 # Lancer l'application
 run:
-	$(STREAMLIT) run app.py
+	$(STREAMLIT) run main.py
 
 # Installer les dépendances
 install:

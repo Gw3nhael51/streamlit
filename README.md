@@ -60,7 +60,7 @@ Les fichiers doivent être placés dans le dossier `archive/` à la racine du pr
 ## 🛠️ Utilisation
 
 ### Lancer l'application
-Le point d'entrée principal est `app.py`. Pour démarrer le serveur Streamlit via le `Makefile` :
+Le point d'entrée principal est `main.py`. Pour démarrer le serveur Streamlit via le `Makefile` :
 
 ```bash
 make run
@@ -68,7 +68,7 @@ make run
 
 Ou manuellement :
 ```bash
-streamlit run app.py
+streamlit run main.py
 ```
 
 L'application sera accessible par défaut à l'adresse `http://localhost:8501`.
@@ -101,16 +101,15 @@ Actuellement, le projet est piloté par le `Makefile` :
 
 ```text
 streamlit/
-├── app.py              # Dashboard interactif (Nvidia & Apple)
+├── main.py             # Point d'entrée principal (Navigation)
+├── src/                # Code source modulaire
+│   ├── modules/        # Pages du dashboard (Nvidia, Apple)
+│   └── utils/          # Logique partagée (Données, Graphiques)
 ├── Makefile            # Automatisation (install, run, clean)
-├── requirements.txt    # Dépendances Python (Pandas, Altair, Streamlit...)
-├── README.md           # Documentation du projet
-├── .gitignore          # Exclusion des environnements et données volumineuses
-├── archive/            # Dossier contenant les datasets CSV (non versionné)
-│   ├── price_data/     # Historique des prix (AAPL.csv, NVDA.csv, etc.)
-│   └── ...             # Autres données financières
-├── assets/             # Captures d'écran et ressources visuelles
-└── .venv/              # Environnement virtuel (non versionné)
+├── requirements.txt    # Dépendances Python
+├── README.md           # Documentation
+├── archive/            # Données CSV (non versionné)
+└── assets/             # Ressources visuelles
 ```
 
 ---
