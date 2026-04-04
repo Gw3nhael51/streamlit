@@ -31,9 +31,19 @@ L'objectif de ce laboratoire est de manipuler des DataFrames, créer des visuali
    ```
 
 3. **Installer les dépendances**
-   ```bash
-   pip install -r requirements.txt
-   ```
+
+Il est recommandé d'utiliser le `Makefile` pour simplifier l'installation :
+```bash
+# Sur Linux/macOS :
+make env-l
+source .venv/bin/activate
+make install
+
+# Sur Windows :
+make env-w
+.venv\Scripts\activate
+make install
+```
 
 ---
 
@@ -50,8 +60,13 @@ Les fichiers doivent être placés dans le dossier `archive/` à la racine du pr
 ## 🛠️ Utilisation
 
 ### Lancer l'application
-Le point d'entrée principal est `app.py`. Pour démarrer le serveur Streamlit localement :
+Le point d'entrée principal est `app.py`. Pour démarrer le serveur Streamlit via le `Makefile` :
 
+```bash
+make run
+```
+
+Ou manuellement :
 ```bash
 streamlit run app.py
 ```
@@ -59,8 +74,10 @@ streamlit run app.py
 L'application sera accessible par défaut à l'adresse `http://localhost:8501`.
 
 ### Scripts disponibles
-Actuellement, le projet est lancé via la commande standard Streamlit. 
-- `streamlit run app.py` : Lance le dashboard interactif.
+Actuellement, le projet est piloté par le `Makefile` :
+- `make run` : Lance le dashboard interactif (Nvidia & Apple).
+- `make install` : Installe/met à jour les dépendances.
+- `make clean` : Nettoie les caches.
 
 ---
 
@@ -84,12 +101,13 @@ Actuellement, le projet est lancé via la commande standard Streamlit.
 
 ```text
 streamlit/
-├── app.py              # Application principale Streamlit
+├── app.py              # Dashboard interactif (Nvidia & Apple)
+├── Makefile            # Automatisation (install, run, clean)
 ├── requirements.txt    # Dépendances Python (Pandas, Altair, Streamlit...)
 ├── README.md           # Documentation du projet
 ├── .gitignore          # Exclusion des environnements et données volumineuses
 ├── archive/            # Dossier contenant les datasets CSV (non versionné)
-│   ├── price_data/     # Historique des prix (AAPL.csv, etc.)
+│   ├── price_data/     # Historique des prix (AAPL.csv, NVDA.csv, etc.)
 │   └── ...             # Autres données financières
 ├── assets/             # Captures d'écran et ressources visuelles
 └── .venv/              # Environnement virtuel (non versionné)
