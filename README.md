@@ -1,106 +1,124 @@
-# Streamlit Data Lab
+# Streamlit Data Lab 📊
 
-Un espace d’expérimentation pour apprendre Streamlit à travers des projets d’analyse de données.  
+Un espace d'expérimentation pour apprendre **Streamlit** à travers des projets d'analyse de données réelles, notamment sur les actions du S&P 500.
 
-Objectif : manipuler des DataFrames, créer des dashboards interactifs, explorer des datasets réels et développer des workflows d’analyse propres et reproductibles.
-
----
-
-## Objectifs du projet
-- Découvrir Streamlit de manière pratique  
-- Construire des interfaces interactives 100 % Python  
-- Manipuler des datasets volumineux (ex : S&P 500)  
-- Tester des visualisations, filtres, exports et analyses  
-- Structurer un mini‑projet data propre et réutilisable  
+L'objectif de ce laboratoire est de manipuler des DataFrames, créer des visualisations interactives avec **Altair**, et structurer des dashboards analytiques performants.
 
 ---
 
-## Structure du projet
+## 🚀 Installation
 
-```
-streamlit/
-│
-├── app.py               # Application principale Streamlit
-├── archive/             # Datasets locaux (non versionnés)
-│   ├── 01_company_info.csv
-│   ├── ...
-│   └── price_data/
-│       ├── AAPL.csv
-│       └── ...
-└── .gitignore           # Exclusion des environnements et archives
-```
+### Prérequis
+- **Python 3.8+**
+- `pip` (gestionnaire de paquets Python)
+- (Optionnel) Un environnement virtuel (`venv`)
+
+### Configuration
+
+1. **Cloner le dépôt**
+   ```bash
+   git clone https://github.com/Gw3nhael51/streamlit.git
+   cd streamlit
+   ```
+
+2. **Créer et activer un environnement virtuel**
+   ```bash
+   python3 -m venv .venv
+   # Sur Linux/macOS :
+   source .venv/bin/activate
+   # Sur Windows :
+   .venv\Scripts\activate
+   ```
+
+3. **Installer les dépendances**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ---
 
-## Installation
+## 📂 Données
 
-```bash
-git clone https://github.com/Gw3nhael51/streamlit.git
-cd streamlit
-python3 -m venv .venv
-# si linux:
-source .venv/bin/activate
-pip install -r requirements.txt
-```
+Ce projet utilise un dataset S&P 500 (finances, prix, news, bilans) disponible sur [Kaggle](https://www.kaggle.com/datasets/sadiqguru/s-and-p-500-stock-data-along-with-financials-and-news).
+
+Les fichiers doivent être placés dans le dossier `archive/` à la racine du projet :
+- `archive/*.csv` (infos entreprises, bilans, etc.)
+- `archive/price_data/*.csv` (données historiques de prix par ticker)
 
 ---
 
-## Lancer l’application
+## 🛠️ Utilisation
+
+### Lancer l'application
+Le point d'entrée principal est `app.py`. Pour démarrer le serveur Streamlit localement :
 
 ```bash
 streamlit run app.py
 ```
 
----
+L'application sera accessible par défaut à l'adresse `http://localhost:8501`.
 
-## Fonctionnalités explorées
-- Affichage interactif de DataFrames  
-- Téléchargement automatique des tableaux  
-- Visualisations (line charts, bar charts, Plotly…)  
-- Filtres dynamiques (tickers, dates, colonnes)  
-- Manipulation de données financières  
-- Tests d’exports CSV / Excel  
+### Scripts disponibles
+Actuellement, le projet est lancé via la commande standard Streamlit. 
+- `streamlit run app.py` : Lance le dashboard interactif.
 
 ---
 
-## Dataset utilisé
-Dataset S&P 500 (finances, prix, news, bilans) disponible sur Kaggle :  
-https://www.kaggle.com/datasets/sadiqguru/s-and-p-500-stock-data-along-with-financials-and-news
+## ⚙️ Configuration & Environnement
 
-Déposer les fichiers dans :  
+- **Variables d'environnement** : Aucune variable d'environnement n'est requise pour le moment.
+- **TODO** : Ajouter une gestion de fichiers de configuration pour les chemins de datasets si nécessaire.
+
+---
+
+## 🧪 Tests
+
+- **État actuel** : Aucun test automatisé n'est implémenté pour le moment.
+- **TODO** : 
+    - [ ] Ajouter des tests unitaires pour la transformation des données avec `pytest`.
+    - [ ] Ajouter des tests d'intégration pour vérifier le chargement des CSV.
+
+---
+
+## 🏗️ Structure du Projet
+
+```text
+streamlit/
+├── app.py              # Application principale Streamlit
+├── requirements.txt    # Dépendances Python (Pandas, Altair, Streamlit...)
+├── README.md           # Documentation du projet
+├── .gitignore          # Exclusion des environnements et données volumineuses
+├── archive/            # Dossier contenant les datasets CSV (non versionné)
+│   ├── price_data/     # Historique des prix (AAPL.csv, etc.)
+│   └── ...             # Autres données financières
+├── assets/             # Captures d'écran et ressources visuelles
+└── .venv/              # Environnement virtuel (non versionné)
 ```
-streamlit/archive/
-```
 
 ---
 
-## Exemple minimal
+## 💻 Stack Technique
 
-```python
-import streamlit as st
-import pandas as pd
-
-df = pd.read_csv("archive/price_data/AAPL.csv")
-
-st.title("Test DataFrame S&P 500")
-st.dataframe(df)
-```
-
-## Exemple rendus
-
-![alt text](assets/image-1.png)
-![alt text](assets/image-2.png)
-
+- **Langage** : [Python 3](https://www.python.org/)
+- **Framework Web** : [Streamlit](https://streamlit.io/)
+- **Analyse de données** : [Pandas](https://pandas.pydata.org/)
+- **Visualisation** : [Altair](https://altair-viz.github.io/)
+- **Gestionnaire de paquets** : `pip`
 
 ---
 
-## Technologies
-- Python 3  
-- Streamlit  
-- Pandas  
-- Plotly (optionnel)  
+## 📸 Aperçu
+
+![Exemple de dashboard](assets/img.png)
+*Visualisation interactive des prix Open/Close pour AAPL.*
 
 ---
 
-## Notes
+## 📄 Licence
+
+Ce projet est actuellement sous licence **TODO: Définir la licence** (ex: MIT). Voir avec le propriétaire du dépôt pour plus de détails.
+
+---
+
+## 📝 Notes
 Ce projet sert de laboratoire personnel pour tester Streamlit, structurer des dashboards et manipuler des données réelles dans un environnement simple et reproductible.
