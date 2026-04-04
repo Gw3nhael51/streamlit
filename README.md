@@ -131,11 +131,5 @@ streamlit/
 
 ---
 
-## 📄 Licence
-
-Ce projet est actuellement sous licence **TODO: Définir la licence** (ex: MIT). Voir avec le propriétaire du dépôt pour plus de détails.
-
----
-
 ## 📝 Notes
 Ce projet sert de laboratoire personnel pour tester Streamlit, structurer des dashboards et manipuler des données réelles dans un environnement simple et reproductible.
